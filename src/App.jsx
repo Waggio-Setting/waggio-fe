@@ -2,11 +2,14 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import UserInputForm from "./component/UserInputForm";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <>아싸!</>;
+  return (
+    <div>
+      <UserInputForm />
+    </div>
+  );
 }
 
 export default App;
