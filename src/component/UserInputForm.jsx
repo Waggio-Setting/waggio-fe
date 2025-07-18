@@ -45,7 +45,9 @@ export const UserInputForm = ( {onSubmit }) => {
       <input name="hourlyRate" type="number" value={formData.hourlyRate} onChange={handleChange} placeholder="Hourly Rate" />
       <input name="hoursWorked" type="number" value={formData.hoursWorked} onChange={handleChange} placeholder="Hours Worked" />
       <input name="salary" type="number" value={formData.salary} onChange={handleChange} placeholder="Salary" />
+      <lavel>Vacation Pay %</lavel>
       <input name="vacationPay" type="number" value={formData.vacationPay} onChange={handleChange} placeholder="Vacation Pay %" />
+      <label>Bonus</label>
       <input name="bonus" type="number" value={formData.bonus} onChange={handleChange} placeholder="Bonus" />
       <input name="bankName" value={formData.bankName} onChange={handleChange} placeholder="Bank Name" required />
       <input name="bankAccount" value={formData.bankAccount} onChange={handleChange} placeholder="Bank Account #" required />
@@ -55,3 +57,4 @@ export const UserInputForm = ( {onSubmit }) => {
     </form>
   );
 }
+export default UserInputForm;
