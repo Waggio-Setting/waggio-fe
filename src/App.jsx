@@ -1,12 +1,25 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import UserInputForm from './component/UserInputForm'
+import EmployeeTable from './component/EmployeeTable'; 
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [employees, setEmployees] =useState([]);
+  
+  const handleAddEmployee = (formData)=>{
+    setEmployees([...employees, formData]);
+  } 
+  
 
-  return <>아싸!</>;
+  return (
+
+  <>
+  <div>
+    <h1>Employee Payroll</h1>
+    <UserInputForm onSubmit={handleAddEmployee} />
+    <EmployeeTable employees={employees} />
+  </div>
+  </>);
 }
 
 export default App;
