@@ -1,13 +1,11 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import UserInputForm from "./component/UserInputForm";
+import CSVUpload from "./component/CSVUpload";
 
 function App() {
   return (
     <div>
-      <UserInputForm />
+      <CSVUpload />
     </div>
   );
 }
