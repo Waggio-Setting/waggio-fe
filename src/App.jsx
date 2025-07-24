@@ -1,6 +1,7 @@
 import { useState } from "react";
 import UserInputForm from "./component/UserInputForm";
 import EmployeeTable from "./component/EmployeeTable";
+import refineData from "./utils/refineData";
 import Papa from "papaparse";
 import "./App.css";
 
