@@ -7,7 +7,6 @@ import UserInputForm from "./component/UserInputForm";
 function App() {
   return (
     <div>
-      <UserInputForm />
     </div>
   );
 }
