@@ -1,8 +1,9 @@
 import { useState } from "react";
+import "./App.css";
 import UserInputForm from "./component/UserInputForm";
 import EmployeeTable from "./component/EmployeeTable";
+import CSVUpload from "./component/CSVUpload";
 import Papa from "papaparse";
-import "./App.css";
 
 function App() {
   const [employees, setEmployees] = useState([]);
@@ -33,10 +34,21 @@ function App() {
   return (
     <>
       <div>
-        <h1>Employee Payroll</h1>
-        <UserInputForm onSubmit={handleAddEmployee} />
-        <EmployeeTable employees={employees} />
-        <button onClick={handleDownloadCSV}>📥 Download CSV </button>
+        <h1>Register Employee Information</h1>
+        <hr />
+        <div>
+          <h2>Add Employee Manually</h2>
+          <p>Fill out the form to register a single employee and download the CSV file.</p>
+          <UserInputForm onSubmit={handleAddEmployee} />
+          <EmployeeTable employees={employees} />
+          <button onClick={handleDownloadCSV}>📥 Download CSV </button>
+        </div>
+        <hr />
+        <div>
+          <h2>Upload Employees via CSV</h2>
+          <p>Upload a CSV file to register multiple employees at once.</p>
+          <CSVUpload />
+        </div>
       </div>
     </>
   );
