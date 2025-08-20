@@ -4,13 +4,23 @@ import UserInputForm from "./component/UserInputForm";
 import EmployeeTable from "./component/EmployeeTable";
 import CSVUpload from "./component/CSVUpload";
 import Papa from "papaparse";
+import api from "./utils/api";
 
 function App() {
   const [employees, setEmployees] = useState([]);
 
-  const handleAddEmployee = (formData) => {
+  const handleAddEmployee = async (formData) => {
     setEmployees([...employees, formData]);
-    console.log("employees", employees);
+    //console.log("employees", employees);
+
+    try {
+      const response = await api.post("/payroll", formData);
+      if (response.status === 200) {
+        console.log("Sucess");
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   const handleDownloadCSV = () => {
@@ -38,17 +48,16 @@ function App() {
         <hr />
         <div>
           <h2>Add Employee Manually</h2>
-          <p>Fill out the form to register a single employee and download the CSV file.</p>
+          <p>
+            Fill out the form to register a single employee and download the CSV
+            file.
+          </p>
           <UserInputForm onSubmit={handleAddEmployee} />
           <EmployeeTable employees={employees} />
           <button onClick={handleDownloadCSV}>📥 Download CSV </button>
         </div>
-        <hr />
-        <div>
-          <h2>Upload Employees via CSV</h2>
-          <p>Upload a CSV file to register multiple employees at once.</p>
-          <CSVUpload />
-        </div>
+      
+  
       </div>
     </>
   );
