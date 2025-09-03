@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./App.css";
 import UserInputForm from "./component/UserInputForm";
 import EmployeeTable from "./component/EmployeeTable";
-import CSVUpload from "./component/CSVUpload";
 import Papa from "papaparse";
 import api from "./utils/api";
 
@@ -11,8 +10,7 @@ function App() {
 
   const handleAddEmployee = async (formData) => {
     setEmployees([...employees, formData]);
-    //console.log("employees", employees);
-
+   
     try {
       const response = await api.post("/payroll", formData);
       if (response.status === 200) {
