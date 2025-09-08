@@ -12,10 +12,10 @@ function App() {
     setEmployees([...employees, formData]);
    
     try {
-      const response = await api.post("/payroll", formData);
+      const response = await api.post("/employee", formData); //change to employee?
       if (response.status === 200) {
         console.log("Sucess");
-      }
+      }         
     } catch (error) {
       console.log("error", error);
     }
@@ -51,7 +51,9 @@ function App() {
             file.
           </p>
           <UserInputForm onSubmit={handleAddEmployee} />
+          <p></p>
           <EmployeeTable employees={employees} />
+        
           <button onClick={handleDownloadCSV}>📥 Download CSV </button>
         </div>
       
